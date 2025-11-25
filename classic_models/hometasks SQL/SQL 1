@@ -1,0 +1,41 @@
+SELECT * FROM exploreplaces.restaurants;
+SELECT name AS restaurant_name FROM restaurants
+WHERE delivery_available=0;
+
+SELECT * FROM review_reactions;
+SELECT distinct reaction_type FROM review_reactions;
+
+SELECT * FROM exploreplaces.cities;
+SELECT r.name AS restaurant_name,
+       c.city_name,
+       c.country
+FROM restaurants r
+INNER JOIN cities c ON r.city_id = c.city_id
+WHERE c.country IN ('USA', 'UK');
+
+SELECT * FROM exploreplaces.users;
+SELECT * FROM users
+WHERE age between 25 AND 35;
+
+SELECT * FROM reviews
+WHERE comment LIKE 'Great%';
+
+SELECT comment,restaurant_id FROM reviews
+WHERE comment LIKE '%cuisine%';
+
+UPDATE restaurants
+SET delivery_available= 0
+WHERE restaurant_id = 9;
+
+SELECT * FROM reviews
+WHERE rating>4 AND review_date LIKE '2025%' OR '2024-12%' AND user_id IN (1,11);
+INSERT INTO users
+values(13,'Tatevik Aghababyan','tat.aghababyan@example.com',30,'Armenia','2025-08-12');
+
+DELETE FROM review_reactions
+WHERE user_id=10;
+
+
+
+
+
